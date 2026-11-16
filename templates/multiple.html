@@ -1,0 +1,52 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+<section class="notes-section">
+    <h2>Python Notes</h2>
+    {% if messages %}
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+    <table border="2">
+        <tr>
+            <th>Question</th>
+            <th>Answer</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+        {% for i in aa %}
+        <tr>
+            <td>
+                {{ i.question }}
+            </td>
+            <td>
+                {{ i.answer }}
+            </td>
+            <td>
+                <a href="{% url 'update' i.pk %}">
+                    Update
+                </a>
+            </td>
+            <td>
+                <a href="{% url 'delete' i.pk %}">
+                    Delete
+                </a>
+            </td>
+        </tr>
+        {% empty %}
+
+        <tr>
+            <td colspan="4">
+                No notes found.
+            </td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+</section>
+
+{% endblock content %}

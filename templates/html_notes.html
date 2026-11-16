@@ -1,0 +1,75 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+<section class="notes-section">
+
+    <h2>HTML Notes</h2>
+
+    {% if messages %}
+        {% for message in messages %}
+            <p class="message">{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+
+    <div class="table-container">
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>Question</th>
+                    <th>Answer</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                {% for i in aa %}
+
+                <tr>
+                    <td>{{ i.question }}</td>
+
+                    <td>{{ i.answer }}</td>
+
+                    <td>
+                        <a href="{% url 'update_html' i.pk %}">
+                            Update
+                        </a>
+                    </td>
+
+                    <td>
+                        <form method="POST"
+                              action="{% url 'delete_html' i.pk %}">
+
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                Delete
+                            </button>
+
+                        </form>
+                    </td>
+                </tr>
+
+                {% empty %}
+
+                <tr>
+                    <td colspan="4">
+                        No HTML notes found.
+                    </td>
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+{% endblock content %}

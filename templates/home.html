@@ -1,0 +1,106 @@
+
+{% extends 'index.html' %}
+
+{% block content %}
+
+<section class="features">
+
+    <div class="section-heading">
+
+        <p>EXPLORE YOUR KNOWLEDGE</p>
+
+        <h2>
+            Everything You Need,
+            <span>In One Place</span>
+        </h2>
+
+    </div>
+
+
+    <div class="feature-grid">
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon blue">
+                📝
+            </div>
+
+            <h3> Python</h3>
+
+            <p>
+              Learn, create, view, update, and manage your personal Python notes easily in one place.
+            </p>
+
+            <a href="{% url 'multiple' %}">
+                Explore Python →
+            </a>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon orange">
+                📝
+            </div>
+
+            <h3>HTML</h3>
+
+            <p>
+                Keep your HTML concepts,
+                questions and answers organized.
+            </p>
+
+            <a href="{% url 'html' %}">
+                Explore HTML →
+            </a>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon purple">
+                🎨
+            </div>
+
+            <h3>CSS</h3>
+
+            <p>
+                Store useful CSS concepts,
+                properties and examples.
+            </p>
+
+            <a href="{% url 'css' %}">
+                Explore CSS →
+            </a>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon yellow">
+                ⚡
+            </div>
+
+            <h3>JavaScript</h3>
+
+            <p>
+                Save JavaScript concepts,
+                syntax and programming knowledge.
+            </p>
+
+            <a href="{% url 'javascript' %}">
+                Explore JavaScript →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+{% endblock content %}

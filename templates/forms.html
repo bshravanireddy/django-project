@@ -1,0 +1,58 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+<section class="update-section">
+
+
+<h2>Add New Note</h2>
+
+{% if messages %}
+    {% for message in messages %}
+        <p class="message">{{ message }}</p>
+    {% endfor %}
+{% endif %}
+
+<form method="POST">
+
+    {% csrf_token %}
+
+    <label for="category">Category</label>
+
+    <select id="category" name="category" required>
+        <option value="">Select Category</option>
+        <option value="notes">Python</option>
+        <option value="html">HTML</option>
+        <option value="css">CSS</option>
+        <option value="javascript">JavaScript</option>
+    </select>
+
+    <label for="question">Question</label>
+
+    <input
+        type="text"
+        id="question"
+        name="question"
+        placeholder="Enter your question"
+        required
+    >
+
+    <label for="answer">Answer</label>
+
+    <textarea
+        id="answer"
+        name="answer"
+        placeholder="Enter your answer"
+        rows="5"
+        required
+    ></textarea>
+
+    <button type="submit">
+        Add Note
+    </button>
+
+</form>
+
+</section>
+
+{% endblock content %}

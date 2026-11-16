@@ -1,0 +1,47 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+<section class="update-section">
+
+    <h2>Update Note</h2>
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+        <label for="question">
+            Question:
+        </label>
+
+        <input
+            type="text"
+            id="question"
+            name="question"
+            value="{{ i.question }}"
+        >
+
+        <br><br>
+
+        <label for="answer">
+            Answer:
+        </label>
+
+        <input
+            type="text"
+            id="answer"
+            name="answer"
+            value="{{ i.answer }}"
+        >
+
+        <br><br>
+
+        <button type="submit">
+            Update
+        </button>
+
+    </form>
+
+</section>
+
+{% endblock content %}
